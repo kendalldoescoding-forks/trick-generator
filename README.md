@@ -1,6 +1,49 @@
-## trick-generator
+<div id="header" align="center">
+  <img src="https://user-images.githubusercontent.com/121221252/215760592-3b24d03b-53ed-4264-9cda-b4f052151513.png"/><br>
+    <!-- <p><strong><em>"Tagline"</em></strong></p>
+     -->
+  <a href="https://gitpod.io/#https://github.com/Dun-sin/Code-Magic">
+    <img src="https://gitpod.io/button/open-in-gitpod.svg">
+  </a>
+</div> 
+<br>
 
-A website to help you get simple tricks you can use in your applications with html and css
+
+### 🚀 About
+
+Code Magic is a website where you can get simple CSS tricks to make your application elegant with just few clicks.
+
+![code magic v2](https://github-production-user-asset-6210df.s3.amazonaws.com/78784850/268496391-eb41fa2f-0617-49e1-9035-c9ade068624d.gif)
+
+### 🧙‍♀️ Magic options available for you:
+
+- Pic Text - Convert images to CSS art. Just upload and get CSS art with just one click.
+- Gradient Text - Dual color gradient for your texts.
+- Gradient Border - Get dual color gradient with desired radius.
+- Gradient Background - Make your backgrounds stand out by applying gradient colors.
+- Animations
+  - Select one of the below options
+    <table>
+      <tbody>
+        <tr>
+          <td align="Center" width="25%">
+            <p>Skew</p>
+          <td>
+          <td align="Center" width="25%">
+            <p>Fade</p>
+          <td>
+          <td align="Center" width="25%">
+            <p>Spin</p>
+          <td>
+        </tr>
+      </tbody>
+    </table>
+  - Set duration and speed for the animations
+  - And boom
+- Box Shadow - Cast a shadow on your element.
+- Border Radius - Get desired border radius for your element.
+- Text Shadow - Create a cool shadow for your text.
+- Input Range - Style your range input type elements easily and quickly
 
 ### ⚒️ Languages / Tools
 
@@ -18,7 +61,7 @@ A website to help you get simple tricks you can use in your applications with ht
     </td> 
   <td align="Center" width="25%">
 	  <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"><img src="https://img.icons8.com/color/144/000000/typescript.png" width="36" height="36" alt="Typescript" /></a>
-	<br>Typescript
+	<br>TypeScript
     </td>   
 	  </tr>
 </tbody>
@@ -28,7 +71,7 @@ A website to help you get simple tricks you can use in your applications with ht
 
 ## 🧑🏾‍💻 Demo
 
-Check out the website: [Trick Generator](https://trick-generator.vercel.app/)
+Check out the website: [Code Magic](https://Code-Magic.vercel.app/)
 
 ## 👇🏽 Prerequisites
 
@@ -37,19 +80,25 @@ Before installation, please make sure you have already installed the following t
 - [Git](https://git-scm.com/downloads)
 - [NodeJs](https://nodejs.org/en/download/)
 
+## 👌🏾 What you have to do to contribute
+
+- [Read the rules](https://github.com/Dun-sin/Code-Magic/blob/main/CONTRIBUTING.md#rules)
+- [Follow the installation Steps](#%EF%B8%8F-installation-steps)
+- [Follow the contributing Steps](#-after-making-a-change)
+
 ## 🛠️ Installation Steps
 
-1. [Fork](https://github.com/Dun-sin/trick-generator/fork) the project. Click on the <a href="https://github.com/Dun-sin/trick-generator/fork"><img src="https://i.imgur.com/G4z1kEe.png" height="15" width="15"></a> icon in the top right to get started
+1. [Fork](https://github.com/Dun-sin/Code-Magic/fork) the project. Click on the <a href="https://github.com/Dun-sin/Code-Magic/fork"><img src="https://i.imgur.com/G4z1kEe.png" height="15" width="15"></a> icon in the top right to get started
 2. Clone the project, you can use the following command:
 
 ```bash
-git clone https://github.com/<your-github-username>/trick-generator
+git clone https://github.com/<your-github-username>/Code-Magic
 ```
 
 3. Navigate to the project directory
 
 ```bash
-cd trick-generator
+cd Code-Magic
 ```
 
 4. Install dependencies with npm install
@@ -59,7 +108,7 @@ npm install
 ```
 
 ```bash
-npm install -g commitizen 
+npm install -g commitizen
 ```
 
 5. Run the project
@@ -81,7 +130,7 @@ git checkout -b YourBranchName
 > NOTE: don't commit the package.json
 
 ```bash
-git add .
+git add <path to the file you worked on>
 ```
 
 3. Commit your changes with
@@ -91,12 +140,14 @@ git cz
 ```
 
 4. Push your changes
+
 ```bash
 git push
 ```
 
 ## 👨‍👩‍👦 Community
-Don't forget to join the discord community - [Join us](https://discord.gg/KUWjx4fygJ) 
+
+Don't forget to join the discord community - [Join us](https://discord.com/invite/ufcysW9q23)
 
 ## 👩🏽‍💻 Contributing
 
@@ -106,13 +157,13 @@ Don't forget to join the discord community - [Join us](https://discord.gg/KUWjx4
 
 ## 🛡️ License
 
-trick-generator is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Code-Magic is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 💪🏽 Thanks to all Contributors
 
-Thanks a lot for spending your time helping trick-generator grow. Thanks a lot! Keep rocking🍻
+Thanks a lot for spending your time helping Code-Magic grow. Thanks a lot! Keep rocking🍻
 
-[![Contributors](https://contrib.rocks/image?repo=Dun-sin/trick-generator)](https://github.com/Dun-sin/trick-generator/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=Dun-sin/Code-Magic)](https://github.com/Dun-sin/Code-Magic/graphs/contributors)
 
 ## 🙏🏽 Support
 

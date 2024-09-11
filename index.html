@@ -1,287 +1,2049 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<!-- CSS -->
-		<link rel="stylesheet" href="./src/style.css" />
+    <!-- HTML Meta Tags -->
+    <title>Code Magic</title>
+    <meta
+      name="description"
+      content="All-in-one tool for Developers. Generate gradient background, border, text, and animation with just one click."
+    />
 
-		<!-- Font -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-			rel="stylesheet"
-		/>
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://code-magic.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Code Magic" />
+    <meta
+      property="og:description"
+      content="All-in-one tool for Developers. Generate gradient background, border, text, and animation with just one click."
+    />
+    <meta
+      property="og:image"
+      content="https://github-production-user-asset-6210df.s3.amazonaws.com/80192140/277101609-8a34c60a-4e79-4e29-beb0-7aabcea8fd58.png"
+    />
 
-		<!-- Scripts -->
-		<script type="module" src="./src/main.ts" defer></script>
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="code-magic.vercel.app" />
+    <meta property="twitter:url" content="https://code-magic.vercel.app/" />
+    <meta name="twitter:title" content="Code Magic" />
+    <meta
+      name="twitter:description"
+      content="All-in-one tool for Developers. Generate gradient background, border, text, and animation with just one click."
+    />
+    <meta
+      name="twitter:image"
+      content="https://github-production-user-asset-6210df.s3.amazonaws.com/80192140/277101609-8a34c60a-4e79-4e29-beb0-7aabcea8fd58.png"
+    />
 
-		<title>Trick Generator</title>
-	</head>
-	<body>
-		<nav>
-			<h1 id="head">Trick Generator</h1>
-			<div>
-				<ul></ul>
-			</div>
-			<div class="menu">
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-		</nav>
+    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
 
-		<main>
-			<!-- Generator Card -->
-			<div class="generators">
-				<div class="generator" data-gen="pic-text">
-					<img
-						src="https://user-images.githubusercontent.com/78784850/177135924-aec3794a-8bd8-48ec-bd5a-4aee074c7a16.png"
-						alt="Picture-Text Generator"
-						loading="lazy"
-					/>
-					<div>
-						<h2>Pic-Text</h2>
-						<img
-							src="./assets/bi_arrow-right-square-fill.svg"
-							alt="Right Icon"
-						/>
-					</div>
-				</div>
-				<div class="generator" data-gen="gradient-text">
-					<img
-						src="https://user-images.githubusercontent.com/78784850/179534667-c5de2a54-5eee-49d3-a7b6-6404e1cde5de.png"
-						alt="Gradient Text Generator"
-						loading="lazy"
-					/>
-					<div>
-						<h2>Gradient Text</h2>
-						<img
-							src="./assets/bi_arrow-right-square-fill.svg"
-							alt="Right Icon"
-						/>
-					</div>
-				</div>
-				<div class="generator" data-gen="gradient-border">
-					<img
-						src="https://user-images.githubusercontent.com/78784850/181470923-7693a5fd-6519-472a-9edd-a31667a14187.png"
-						alt="Gradient Border"
-						loading="lazy"
-					/>
-					<div>
-						<h2>Gradient Border</h2>
-						<img
-							src="./assets/bi_arrow-right-square-fill.svg"
-							alt="Right Icon"
-						/>
-					</div>
-				</div>
-				<div class="generator" data-gen="gradient-background">
-					<img
-						src="https://user-images.githubusercontent.com/78784850/183375805-478b002f-4ef2-4ab8-8b1b-da50482b45ff.png"
-						alt="Gradient Background"
-						loading="lazy"
-					/>
-					<div>
-						<h2>Gradient Background</h2>
-						<img
-							src="./assets/bi_arrow-right-square-fill.svg"
-							alt="Right Icon"
-						/>
-					</div>
-				</div>
-			</div>
-			<!-- Modal -->
-			<div class="modal-container">
-				<div class="modal-generator">
-					<div class="modal-header">
-						<p id="heading-text-modal"></p>
-						<img
-							src="./assets/close-square-fill.svg"
-							alt="close button"
-							id="close-modal"
-						/>
-					</div>
-					<div class="modal-main-content" data-modal="pic-text">
-						<div class="input">
-							<div>
-								<textarea
-									id="pic-text-text"
-									placeholder="Enter the text you want(Optional)"
-									class="input-bar"
-								></textarea>
-								<p class="count"><span>0</span>/400</p>
-							</div>
-							<input type="file" id="pic-text-file" required />
-							<div class="btn" data-button="pic-text">Get image</div>
-						</div>
-						<div class="download-output">
-							<div class="output"></div>
-							<p>
-								Note: Downloading only works for firefox <br />
-								but copying the code works for every browser
-							</p>
-							<div class="download-btn">
-								<button class="btn" data-download="pic-text-PNG">
-									Download PNG
-								</button>
-								<button class="btn" data-download="pic-text-svg">
-									Download Svg
-								</button>
-								<button class="btn" data-download="pic-text-code">
-									Get Code
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="modal-main-content" data-modal="gradient-text">
-						<div class="input">
-							<input
-								type="text"
-								id="gradient-text-text"
-								placeholder="Enter the text"
-							/>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/style.css" />
 
-							<p>Pick Your Colors:</p>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
 
-							<label for="colorPicker">
-								<input type="color" value="#1DB8CE" id="gradient-text-color1" />
-								<span>First Color</span>
-							</label>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
 
-							<label for="colorPicker">
-								<input type="color" value="#1DB4CE" id="gradient-text-color2" />
-								<span>Second Color</span>
-							</label>
-							<label id="degree">
-								<span>Slide to change the degree</span>
-								<input
-									type="range"
-									max="360"
-									min="0"
-									id="gradient-text-degree"
-								/>
-							</label>
-							<div class="btn" data-button="gradient-text">Get Text</div>
-						</div>
-						<div class="download-output">
-							<div class="output"></div>
-							<div class="download-btn">
-								<button class="btn" data-download="gradient-text-PNG">
-									Download Image
-								</button>
-								<button class="btn" data-download="gradient-text-svg">
-									Download Svg
-								</button>
-								<button class="btn" data-download="gradient-text-code">
-									Get Code
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="modal-main-content" data-modal="gradient-border">
-						<div class="input">
-							<p>Pick Your Colors:</p>
+    <!-- Color Picker CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.css"
+    />
 
-							<label for="colorPicker">
-								<input
-									type="color"
-									value="#1DB8CE"
-									id="gradient-border-color1"
-								/>
-								<span>First Color</span>
-							</label>
+    <!-- Scripts -->
+    <!-- Color Picker JS -->
+    <script src="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.js"></script>
+    <!-- Icon Js -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
+    <script type="module" src="./src/main.ts" defer></script>
+    <!-- Star Button Js -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-P445L31SWR"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-							<label for="colorPicker">
-								<input
-									type="color"
-									value="#1DB4CE"
-									id="gradient-border-color2"
-								/>
-								<span>Second Color</span>
-							</label>
+      gtag('config', 'G-P445L31SWR');
+    </script>
 
-							<label id="degree">
-								<span>Slide to change the degree</span>
-								<input
-									type="range"
-									max="360"
-									min="0"
-									id="gradient-border-degree"
-								/>
-							</label>
+    <title>Code Magic</title>
+  </head>
 
-							<div class="btn" data-button="gradient-border">Get Result</div>
-						</div>
-						<div class="download-output">
-							<div class="output"></div>
-							<div class="download-btn">
-								<button class="btn" data-download="gradient-border-code">
-									Get Code
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="modal-main-content" data-modal="gradient-background">
-						<div class="input">
-							<p>Pick Your Colors:</p>
+  <body>
+    <!-- Side Bar -->
+    <header>
+      <div class="menu">
+        <iconify-icon
+          id="menu-icon"
+          inline
+          icon="dashicons:menu-alt"
+          style="color: white"
+          width="30"
+          height="30"
+        ></iconify-icon>
+      </div>
+      <nav id="nav" class="closed-nav">
+        <h1 id="head">Code Magic</h1>
+        <ul id="category">
+          <li id="gradient" class="dropdown">
+            <div>
+              <div>
+                <iconify-icon
+                  inline
+                  icon="ri:gradienter-fill"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span> Gradient Generators </span>
+              </div>
+              <iconify-icon
+                inline
+                icon="material-symbols:arrow-drop-down-rounded"
+                style="color: white"
+                width="20"
+              ></iconify-icon>
+            </div>
+            <ul>
+              <li data-gen="gradient-text">
+                <iconify-icon
+                  inline
+                  icon="ic:baseline-gradient"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Gradient Text</span>
+                <span class="tooltip">Create Gradient Texts</span>
+              </li>
+              <li data-gen="gradient-background">
+                <iconify-icon
+                  inline
+                  icon="fluent:color-background-24-filled"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Gradient Background</span>
+                <span class="tooltip"
+                  >Create Gradient Background for your websites</span
+                >
+              </li>
+            </ul>
+          </li>
 
-							<label for="colorPicker">
-								<input
-									type="color"
-									value="#1DB8CE"
-									id="gradient-background-color1"
-								/>
-								<span>First Color</span>
-							</label>
+          <li id="shadows" class="dropdown">
+            <div>
+              <div>
+                <iconify-icon
+                  inline
+                  icon="vaadin:square-shadow"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Shadow Generators</span>
+              </div>
+              <iconify-icon
+                inline
+                icon="material-symbols:arrow-drop-down-rounded"
+                style="color: white"
+                width="20"
+              ></iconify-icon>
+            </div>
+            <ul>
+              <li data-gen="box-shadow">
+                <iconify-icon
+                  inline
+                  icon="mdi:box-shadow"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Box Shadow</span>
+                <span class="tooltip">Create Box Shadow for your elements</span>
+              </li>
+              <li data-gen="text-shadow">
+                <iconify-icon
+                  inline
+                  icon="mdi:text-shadow"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Text Shadow</span>
+                <span class="tooltip">Create Text Shadow for your texts</span>
+              </li>
+            </ul>
+          </li>
 
-							<label for="colorPicker">
-								<input
-									type="color"
-									value="#1DB4CE"
-									id="gradient-background-color2"
-								/>
-								<span>Second Color</span>
-							</label>
+          <li id="animation" class="dropdown">
+            <div>
+              <div>
+                <iconify-icon
+                  inline
+                  icon="material-symbols:animation"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Animation</span>
+              </div>
+              <iconify-icon
+                inline
+                icon="material-symbols:arrow-drop-down-rounded"
+                style="color: white"
+                width="20"
+              ></iconify-icon>
+            </div>
+            <ul>
+              <li data-gen="animation">
+                <iconify-icon
+                  inline
+                  icon="clarity:animation-line"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Animator</span>
+                <span class="tooltip"
+                  >Create animations like Fade, Flip, Skew
+                </span>
+              </li>
+              <li data-gen="transform">
+                <iconify-icon
+                  inline
+                  icon="game-icons:transform"
+                  width="20"
+                ></iconify-icon>
+                <span> Transform </span>
+                <span class="tooltip">
+                  Scale, skew, translate and rotate elements with transform
+                </span>
+              </li>
+            </ul>
+          </li>
 
-							<label id="degree">
-								<span>Slide to change the degree</span>
-								<input
-									type="range"
-									max="360"
-									min="0"
-									id="gradient-background-degree"
-								/>
-							</label>
+          <li id="border" class="dropdown">
+            <div>
+              <div>
+                <iconify-icon
+                  inline
+                  icon="cil:color-border"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Border Generators</span>
+              </div>
+              <iconify-icon
+                inline
+                icon="material-symbols:arrow-drop-down-rounded"
+                style="color: white"
+                width="20"
+              ></iconify-icon>
+            </div>
+            <ul>
+              <li data-gen="border-radius">
+                <iconify-icon
+                  inline
+                  icon="ic:twotone-rounded-corner"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Border Radius</span>
+                <span class="tooltip"
+                  >Create amazing border radius for elements</span
+                >
+              </li>
+              <li data-gen="gradient-border">
+                <iconify-icon
+                  inline
+                  icon="fa-solid:border-all"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Gradient Border</span>
+                <span class="tooltip"
+                  >Create Gradient border for your elements</span
+                >
+              </li>
+            </ul>
+          </li>
 
-							<div class="btn" data-button="gradient-background">
-								Get Result
-							</div>
-						</div>
-						<div class="download-output">
-							<div class="output"></div>
-							<div class="download-btn">
-								<button class="btn" data-download="gradient-background-code">
-									Get Code
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</main>
+          <li id="input" class="dropdown">
+            <div>
+              <div>
+                <iconify-icon
+                  inline
+                  icon="material-symbols:input"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Input Generators</span>
+              </div>
+              <iconify-icon
+                inline
+                icon="material-symbols:arrow-drop-down-rounded"
+                style="color: white"
+                width="20"
+              ></iconify-icon>
+            </div>
+            <ul>
+              <li data-gen="input-range">
+                <iconify-icon
+                  inline
+                  icon="uil:slider-h-range"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Input Range</span>
+                <span class="tooltip">
+                  Get styling for input element type range
+                </span>
+              </li>
+            </ul>
+          </li>
 
-		<footer>
-			<p>
-				Contribute to the Project
-				<a href="https://github.com/Dun-sin/trick-generator" target="_blank"
-					>Click Here</a
-				>
-			</p>
-			<p>Made with 💘 by the community</p>
-		</footer>
-	</body>
+          <li id="layout-generator" class="dropdown">
+            <div>
+              <div>
+                <iconify-icon
+                  inline
+                  icon="ph:layout"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Layout Generators</span>
+              </div>
+              <iconify-icon
+                inline
+                icon="material-symbols:arrow-drop-down-rounded"
+                style="color: white"
+                width="20"
+              ></iconify-icon>
+            </div>
+            <ul>
+              <li data-gen="grid-generators">
+                <iconify-icon
+                  inline
+                  icon="ep:grid"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>CSS Grid Generator</span>
+                <span class="tooltip"> Get styling for css grid </span>
+              </li>
+            </ul>
+          </li>
+
+          <li id="random" class="dropdown">
+            <div>
+              <div>
+                <iconify-icon
+                  inline
+                  icon="game-icons:perspective-dice-six-faces-random"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Random Generators</span>
+              </div>
+              <iconify-icon
+                inline
+                icon="material-symbols:arrow-drop-down-rounded"
+                style="color: white"
+                width="20"
+              ></iconify-icon>
+            </div>
+            <ul>
+              <li data-gen="pic-text">
+                <iconify-icon
+                  inline
+                  icon="cil:text-shapes"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Pic-Text</span>
+                <span class="tooltip">
+                  Convert Your Image to Character Art
+                </span>
+              </li>
+              <li data-gen="scroll">
+                <iconify-icon
+                  inline
+                  icon="ph:mouse-scroll"
+                  style="color: white"
+                  width="20"
+                  height="20"
+                ></iconify-icon>
+                <span>Custom ScrollBar</span>
+                <span class="tooltip"
+                  >Change the color and style of the scrollbar</span
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <footer>
+          <a
+            class="github-button"
+            href="https://github.com/Dun-sin/Code-Magic"
+            data-icon="octicon-star"
+            data-show-count="true"
+            aria-label="Star Dun-sin/Code-Magic on GitHub"
+            >Star</a
+          >
+          <a
+            href="https://www.producthunt.com/posts/code-magic?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-code&#0045;magic"
+            target="_blank"
+            ><img
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=371773&theme=dark"
+              alt="Code&#0032;Magic - All&#0045;in&#0045;one&#0032;styling&#0032;tool&#0032;for&#0032;developers | Product Hunt"
+              style="width: 90%; height: 54px"
+              width="250"
+              height="54"
+          /></a>
+        </footer>
+      </nav>
+    </header>
+    <!-- End of Side Bar -->
+
+    <!-- Main Page -->
+    <main>
+      <!-- Home Page -->
+      <section id="home-page">
+        <h1>
+          All in one <span>styling</span> tool for <span>Developers</span>.
+          <br />
+          Navigate the <span>sidebar</span> and get <span>Access</span>
+        </h1>
+        <h2>
+          EASILY create Gradient Backgrounds, Gradient Text, Gradient Borders
+          <br />
+          and more for your applications <span>With Just One Click</span>
+        </h2>
+      </section>
+      <!-- End of Home Page -->
+
+      <!-- Generator Tools -->
+      <section id="generator">
+        <!-- Sign for opening result section -->
+        <div class="open">
+          <p>Open Previous Results➡️</p>
+          <div class="open-sidebar">
+            <iconify-icon
+              inline
+              icon="lucide:sidebar-open"
+              style="color: white; cursor: pointer"
+              width="28"
+              height="28"
+            ></iconify-icon>
+            <span class="tooltip">Open</span>
+          </div>
+        </div>
+        <!-- End of sign for opening result section -->
+
+        <!-- Input for Generators -->
+        <div class="generators">
+          <!-- Pic Text -->
+          <div data-content="pic-text">
+            <div class="generator-tool-title">
+              <h1>Pic Text</h1>
+            </div>
+            <label for="pic-text-file">
+              <input type="file" id="pic-text-file" required />
+            </label>
+            <div class="btn-container">
+              <div class="reset" data-reset="pic-text">Reset</div>
+              <div class="btn" data-button="pic-text">Get Results</div>
+            </div>
+          </div>
+          <!-- End of Pic Text -->
+
+          <!-- Gradient Text -->
+          <div data-content="gradient-text">
+            <div class="generator-tool-title">
+              <h1>Gradient Text</h1>
+            </div>
+            <textarea
+              id="gradient-text-text"
+              placeholder="Enter the text"
+            ></textarea>
+
+            <div class="colors">
+              <label for="color" class="color">
+                <input
+                  type="text"
+                  data-coloris=""
+                  placeholder="Tap to pick a color"
+                  id="gradient-text-color1"
+                  class="gradient-text-inputs"
+                />
+              </label>
+
+              <label for="color" class="color">
+                <input
+                  type="text"
+                  data-coloris
+                  placeholder="Tap to pick a color"
+                  id="gradient-text-color2"
+                  class="gradient-text-inputs"
+                />
+              </label>
+            </div>
+
+            <div class="add-remove-color">
+              <div class="addNewColor newColor">
+                <iconify-icon
+                  icon="material-symbols:add"
+                  style="color: white"
+                  width="20"
+                ></iconify-icon>
+                <p>Add New Color</p>
+              </div>
+
+              <div class="removeNewColor newColor">
+                <iconify-icon
+                  icon="material-symbols:remove"
+                  style="color: white"
+                  width="20"
+                ></iconify-icon>
+                <p>Remove A Color</p>
+              </div>
+            </div>
+
+            <div class="preview" id="gradient-text-color-preview"></div>
+
+            <label id="degree">
+              <span class="label-title">
+                <span>Degree</span>
+                <span id="degree-display" class="unit-display">deg</span>
+              </span>
+              <input
+                type="range"
+                max="360"
+                min="0"
+                id="gradient-text-degree"
+                class="gradient-text-inputs degree-range"
+              />
+            </label>
+
+            <div class="btn-container">
+              <div class="reset" data-reset="gradient-text">Reset</div>
+              <div class="btn" data-button="gradient-text">Get Results</div>
+            </div>
+          </div>
+          <!-- End of Gradient Text -->
+
+          <!-- Gradient Border -->
+          <div data-content="gradient-border">
+            <div class="generator-tool-title">
+              <h1>Gradient Border</h1>
+            </div>
+            <div class="colors">
+              <label for="color" class="color">
+                <input
+                  type="text"
+                  data-coloris
+                  placeholder="Tap to pick a color"
+                  id="gradient-border-color1"
+                  class="gradient-border-inputs"
+                />
+              </label>
+
+              <label for="color" class="color">
+                <input
+                  type="text"
+                  data-coloris
+                  placeholder="Tap to pick a color"
+                  id="gradient-border-color2"
+                  class="gradient-border-inputs"
+                />
+              </label>
+            </div>
+
+            <div class="add-remove-color">
+              <div class="addNewColor newColor">
+                <iconify-icon
+                  icon="material-symbols:add"
+                  style="color: white"
+                  width="20"
+                ></iconify-icon>
+                <p>Add New Color</p>
+              </div>
+
+              <div class="removeNewColor newColor">
+                <iconify-icon
+                  icon="material-symbols:remove"
+                  style="color: white"
+                  width="20"
+                ></iconify-icon>
+                <p>Remove A Color</p>
+              </div>
+            </div>
+
+            <div class="preview" id="gradient-border-color-preview"></div>
+
+            <label class="radius" for="gradient-border-radius">
+              <div class="radius-input-container">
+                <div class="radius-checkbox-container">
+                  <input
+                    class="circular-checkbox"
+                    type="checkbox"
+                    id="gradient-border-radius"
+                    name="check"
+                  />
+                  <span> Include Radius </span>
+                </div>
+                <label id="radius-input-label" for="gradient-border-input">
+                  <input
+                    type="number"
+                    id="gradient-border-input"
+                    name="desired-radius"
+                    placeholder="Enter a number e.g. 50"
+                    class="toggle-radius styled-input"
+                    autofocus
+                    required
+                  />
+                </label>
+              </div>
+            </label>
+
+            <label id="degree">
+              <span class="label-title">
+                <span>Degree</span>
+                <span id="degree-display" class="unit-display">deg</span>
+              </span>
+              <input
+                type="range"
+                max="360"
+                min="0"
+                id="gradient-border-degree"
+                class="gradient-border-inputs degree-range"
+              />
+            </label>
+
+            <div class="btn-container">
+              <div class="reset" data-reset="gradient-border">Reset</div>
+              <div class="btn" data-button="gradient-border">Get Result</div>
+            </div>
+          </div>
+          <!-- End of Gradient Border -->
+
+          <!-- Gradient Background -->
+          <div data-content="gradient-background">
+            <div class="generator-tool-title">
+              <h1>Gradient Background</h1>
+            </div>
+            <div class="colors">
+              <label for="color" class="color">
+                <input
+                  type="text"
+                  data-coloris
+                  placeholder="Tap to pick a color"
+                  id="gradient-background-color1"
+                  class="gradient-background-inputs"
+                />
+              </label>
+
+              <label for="color" class="color">
+                <input
+                  type="text"
+                  data-coloris
+                  placeholder="Tap to pick a color"
+                  id="gradient-background-color2"
+                  class="gradient-background-inputs"
+                />
+              </label>
+            </div>
+
+            <div class="add-remove-color">
+              <div class="addNewColor newColor">
+                <iconify-icon
+                  icon="material-symbols:add"
+                  style="color: white"
+                  width="20"
+                ></iconify-icon>
+                <p>Add New Color</p>
+              </div>
+
+              <div class="removeNewColor newColor">
+                <iconify-icon
+                  icon="material-symbols:remove"
+                  style="color: white"
+                  width="20"
+                ></iconify-icon>
+                <p>Remove A Color</p>
+              </div>
+            </div>
+
+            <div class="preview" id="gradient-background-color-preview"></div>
+
+            <label id="degree">
+              <span class="label-title">
+                <span>Degree</span>
+                <span id="degree-display" class="unit-display">deg</span>
+              </span>
+              <input
+                type="range"
+                max="360"
+                min="0"
+                id="gradient-background-degree"
+                class="gradient-background-inputs degree-range"
+              />
+            </label>
+
+            <div class="btn-container">
+              <div class="reset" data-reset="gradient-background">Reset</div>
+              <div
+                class="btn"
+                data-button="gradient-background"
+                id="getResultBtn"
+              >
+                Get Result
+              </div>
+            </div>
+          </div>
+          <!-- End of Gradient Background -->
+
+          <!-- Animation -->
+          <div data-content="animation">
+            <div class="generator-tool-title">
+              <h1>Animator</h1>
+            </div>
+            <div class="preview-slider"></div>
+
+            <div class="animation-type">
+              <p>Animation Type</p>
+              <div class="radio-group">
+                <label id="animation-radio-label" for="skew">
+                  <input
+                    checked
+                    type="radio"
+                    id="skew"
+                    name="animation-radio"
+                    value="skew"
+                  />
+                  <span>Skew</span>
+                </label>
+                <label id="animation-radio-label" for="fade">
+                  <input
+                    type="radio"
+                    id="fade"
+                    name="animation-radio"
+                    value="fade"
+                  />
+                  <span>Fade</span>
+                </label>
+                <label id="animation-radio-label" for="flip">
+                  <input
+                    type="radio"
+                    id="flip"
+                    name="animation-radio"
+                    value="flip"
+                  />
+                  <span>Flip</span>
+                </label>
+                <label id="animation-radio-label" for="rotate">
+                  <input
+                    type="radio"
+                    id="rotate"
+                    name="animation-radio"
+                    value="rotate"
+                  />
+                  <span>Rotate</span>
+                </label>
+              </div>
+            </div>
+
+            <label class="duration-label" for="animation-duration">
+              <span>Duration</span>
+              <input
+                type="number"
+                name="duration"
+                id="animation-duration"
+                class="styled-input"
+                min="0"
+                max="120"
+                step="1"
+                value="3"
+              />
+            </label>
+            <label id="degree" for="animation-degree">
+              <span class="label-title">
+                <span class="title-display">Angle</span>
+                <span class="unit-display animation">deg</span>
+              </span>
+              <input
+                type="range"
+                max="90"
+                min="-90"
+                value="50"
+                class="degree-range"
+                id="animation-degree"
+              />
+            </label>
+
+            <div class="btn-container">
+              <div class="reset" data-reset="animation">Reset</div>
+              <div class="btn" data-button="animation">Get Results</div>
+            </div>
+          </div>
+          <!-- End of Animation -->
+
+          <!-- Border Radius -->
+          <div data-content="border-radius">
+            <div class="generator-tool-title">
+              <h1>Border Radius</h1>
+            </div>
+            <div class="border-radius-preview-box">
+              <div class="preview"></div>
+              <div class="border-range-inputs">
+                <label for="border-radius-top">
+                  <input
+                    type="range"
+                    max="100"
+                    min="0"
+                    id="border-radius-top"
+                    class="border-radius-inputs"
+                  />
+                </label>
+                <label for="border-radius-left">
+                  <input
+                    type="range"
+                    max="100"
+                    min="0"
+                    id="border-radius-left"
+                    class="border-radius-inputs"
+                  />
+                </label>
+                <label for="border-radius-right">
+                  <input
+                    type="range"
+                    max="100"
+                    min="0"
+                    id="border-radius-right"
+                    class="border-radius-inputs"
+                  />
+                </label>
+                <label for="border-radius-bottom">
+                  <input
+                    type="range"
+                    max="100"
+                    min="0"
+                    id="border-radius-bottom"
+                    class="border-radius-inputs"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div class="btn-container">
+              <div class="reset" data-reset="border-radius">Reset</div>
+              <div class="btn" data-button="border-radius">Get Results</div>
+            </div>
+          </div>
+          <!-- End of Border Radius -->
+
+          <!-- Box Shadow -->
+          <div data-content="box-shadow">
+            <div class="generator-tool-title">
+              <h1>Box Shadow</h1>
+            </div>
+            <div class="preview-slider"></div>
+
+            <div class="colors">
+              <label for="color" class="color full-page">
+                <input
+                  type="text"
+                  data-coloris
+                  placeholder="Tap to pick a color"
+                  id="box-shadow-color"
+                  class="box-shadow-inputs"
+                />
+              </label>
+            </div>
+
+            <div class="degrees">
+              <div class="degrees-row">
+                <label id="degree" for="box-shadow-h-offset">
+                  <span>
+                    <span>Horizontal</span>
+                    <span id="box-shadow-h-offset-field">5px</span>
+                  </span>
+                  <input
+                    type="range"
+                    max="50"
+                    min="-20"
+                    value="5"
+                    id="box-shadow-h-offset"
+                    class="box-shadow-inputs"
+                  />
+                </label>
+
+                <label id="degree" for="box-shadow-v-offset">
+                  <span>
+                    <span>Vertical</span>
+                    <span id="box-shadow-v-offset-field">5px</span>
+                  </span>
+                  <input
+                    type="range"
+                    max="50"
+                    min="-20"
+                    value="10"
+                    id="box-shadow-v-offset"
+                    class="box-shadow-inputs"
+                  />
+                </label>
+              </div>
+              <hr class="divider" />
+              <div class="degrees-row">
+                <label id="degree" for="box-shadow-blur">
+                  <span>
+                    <span>Blur</span>
+                    <span id="box-shadow-blur-field">5px</span>
+                  </span>
+                  <input
+                    type="range"
+                    max="100"
+                    min="0"
+                    value="18"
+                    id="box-shadow-blur"
+                    class="box-shadow-inputs"
+                  />
+                </label>
+
+                <label id="degree" for="box-shadow-spread">
+                  <span>
+                    <span>Spread</span>
+                    <span id="box-shadow-spread-field">5px</span>
+                  </span>
+                  <input
+                    type="range"
+                    max="50"
+                    min="-20"
+                    value="5"
+                    id="box-shadow-spread"
+                    class="box-shadow-inputs"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div class="btn-container">
+              <div class="reset" data-reset="box-shadow">Reset</div>
+              <div class="btn" data-button="box-shadow">Get Results</div>
+            </div>
+          </div>
+          <!-- End of Box Shadow -->
+
+          <!-- Text Shadow Generator -->
+          <div data-content="text-shadow">
+            <div class="generator-tool-title">
+              <h1>Text Shadow</h1>
+            </div>
+            <div class="preview-slider"></div>
+
+            <textarea
+              id="text-shadow-text"
+              placeholder="Enter the text"
+            ></textarea>
+
+            <div class="colors">
+              <label for="color" class="color full-page">
+                <input
+                  type="text"
+                  data-coloris
+                  placeholder="Tap to pick a color"
+                  id="text-shadow-color"
+                  class="text-shadow-inputs"
+                />
+              </label>
+            </div>
+
+            <div class="degrees">
+              <div class="degrees-row">
+                <label id="degree">
+                  <span>
+                    <span>Horizontal</span>
+                    <span id="text-shadow-h-offset-field">5px</span>
+                  </span>
+                  <input
+                    type="range"
+                    max="20"
+                    min="-20"
+                    value="2"
+                    id="text-shadow-h-offset"
+                    class="text-shadow-inputs"
+                  />
+                </label>
+
+                <label id="degree">
+                  <span>
+                    <span>Vertical</span>
+                    <span id="text-shadow-v-offset-field">5px</span>
+                  </span>
+                  <input
+                    type="range"
+                    max="20"
+                    min="-20"
+                    value="2"
+                    id="text-shadow-v-offset"
+                    class="text-shadow-inputs"
+                  />
+                </label>
+              </div>
+              <hr class="divider" />
+              <div class="degrees-row">
+                <label id="degree" for="text-shadow-blur">
+                  <span>
+                    <span>Blur</span>
+                    <span id="text-shadow-blur-field">5px</span>
+                  </span>
+                  <input
+                    type="range"
+                    max="25"
+                    min="0"
+                    value="4"
+                    id="text-shadow-blur"
+                    class="text-shadow-inputs"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div class="btn-container">
+              <div class="reset" data-reset="text-shadow">Reset</div>
+              <div class="btn" data-button="text-shadow">Get Results</div>
+            </div>
+          </div>
+          <!-- End of Text Shadow Generator -->
+
+          <!-- Transform Generator -->
+
+          <div data-content="transform">
+            <div class="generator-tool-title">
+              <h1>Transform</h1>
+            </div>
+            <div class="preview-slider"></div>
+
+            <div class="transform-type">
+              <p>Transform Type</p>
+              <div class="radio-group">
+                <label id="transform-radio-label" for="scale">
+                  <input
+                    checked
+                    type="radio"
+                    id="scale"
+                    name="transform-radio"
+                    value="scale"
+                  />
+                  <span>Scale</span>
+                </label>
+                <label id="transform-radio-label" for="rotate">
+                  <input
+                    type="radio"
+                    id="rotate"
+                    name="transform-radio"
+                    value="rotate"
+                  />
+                  <span>Rotate</span>
+                </label>
+                <label id="transform-radio-label" for="skew">
+                  <input
+                    type="radio"
+                    id="skew"
+                    name="transform-radio"
+                    value="skew"
+                  />
+                  <span>Skew</span>
+                </label>
+                <label id="transform-radio-label" for="translateX">
+                  <input
+                    type="radio"
+                    id="translateX"
+                    name="transform-radio"
+                    value="translateX"
+                  />
+                  <span>TranslateX</span>
+                </label>
+                <label id="transform-radio-label" for="translateY">
+                  <input
+                    type="radio"
+                    id="translateY"
+                    name="transform-radio"
+                    value="translateY"
+                  />
+                  <span>TranslateY</span>
+                </label>
+              </div>
+            </div>
+            <label id="degree" for="transform-degree">
+              <span class="label-title">
+                <span class="title-display transform">Size</span>
+                <span class="unit-display transform"></span>
+              </span>
+              <input
+                type="range"
+                max="2"
+                min=".1"
+                value="1"
+                step=".1"
+                class="degree-range"
+                id="transform-degree"
+              />
+            </label>
+
+            <div class="btn-container">
+              <div class="reset" data-reset="transform">Reset</div>
+              <div class="btn" data-button="transform">Get Results</div>
+            </div>
+          </div>
+          <!-- End of Transform Generator -->
+
+          <!-- Input Type Range Generator -->
+          <div data-content="input-range">
+            <div class="generator-tool-title">
+              <h1>Input Range</h1>
+            </div>
+            <label for="preview-range">
+              <p>Preview</p>
+              <input type="range" min="3" max="20" name="" id="preview-range" />
+            </label>
+
+            <!-- Color for track and thumbs -->
+            <div class="colors">
+              <label for="color" class="color">
+                Track Color
+                <input
+                  type="text"
+                  data-coloris
+                  placeholder="Tap to pick a color"
+                  id="input-range-color1"
+                  class="input-range-inputs"
+                />
+              </label>
+
+              <label for="color" class="color">
+                Thumb Color
+                <input
+                  type="text"
+                  data-coloris
+                  placeholder="Tap to pick a color"
+                  id="input-range-color2"
+                  class="input-range-inputs"
+                />
+              </label>
+            </div>
+
+            <!-- Height for Tracks and Thumbs -->
+            <div class="size">
+              <div>
+                <label for="thumb-height">
+                  <div>
+                    <span> Thumb Height </span>
+                    <span id="thumb-height-label"></span>
+                  </div>
+                  <input
+                    type="range"
+                    min="5"
+                    max="20"
+                    name="thumb-height"
+                    id="thumb-height"
+                    class="input-range-inputs"
+                  />
+                </label>
+                <label for="thumb-width">
+                  <div>
+                    <span> Thumb Width </span>
+                    <span id="thumb-width-label"></span>
+                  </div>
+                  <input
+                    type="range"
+                    min="5"
+                    max="100"
+                    name="thumb-width"
+                    id="thumb-width"
+                    class="input-range-inputs"
+                  />
+                </label>
+              </div>
+              <div>
+                <label for="track-height">
+                  <div>
+                    <span> Track Height </span>
+                    <span id="track-height-label"></span>
+                  </div>
+
+                  <input
+                    type="range"
+                    min="5"
+                    max="20"
+                    name="track-height"
+                    id="track-height"
+                    class="input-range-inputs"
+                  />
+                </label>
+                <label for="track-width">
+                  <div>
+                    <span> Track Width </span>
+
+                    <span id="track-width-label"></span>
+                  </div>
+
+                  <input
+                    type="range"
+                    min="100"
+                    max="300"
+                    name="track-width"
+                    id="track-width"
+                    class="input-range-inputs"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <!-- Border Radius for Tracks and Thumbs -->
+
+            <div class="radius">
+              <label for="input-range-thumb-radius">
+                <div class="input-range-container">
+                  <div class="checkbox-title">
+                    <input
+                      type="checkbox"
+                      id="input-range-thumb-radius"
+                      name="check"
+                      class="input-range-inputs circular-checkbox"
+                    />
+
+                    <span> Include Thumb Radius </span>
+                  </div>
+
+                  <label id="radius-input-label" for="input-range-thumb-input">
+                    <input
+                      type="number"
+                      min="1"
+                      max="120"
+                      id="input-range-thumb-input"
+                      name="desired-radius"
+                      class="toggle-radius input-range-inputs"
+                      placeholder="Enter a number e.g. 50"
+                      autofocus
+                      required
+                    />
+                  </label>
+                </div>
+              </label>
+              <label for="input-range-track-radius">
+                <div class="input-range-container">
+                  <div class="checkbox-title">
+                    <input
+                      type="checkbox"
+                      id="input-range-track-radius"
+                      name="check"
+                      class="input-range-inputs circular-checkbox"
+                    />
+
+                    <span> Include Track Radius </span>
+                  </div>
+                  <label id="radius-input-label" for="input-range-track-input">
+                    <input
+                      type="number"
+                      min="1"
+                      max="120"
+                      id="input-range-track-input"
+                      name="desired-radius"
+                      class="toggle-radius input-range-inputs"
+                      placeholder="Enter a number e.g. 50"
+                      autofocus
+                      required
+                    />
+                  </label>
+                </div>
+              </label>
+            </div>
+
+            <!-- Copy Code Button -->
+            <div class="btn-container">
+              <div class="reset" data-reset="input-range">Reset</div>
+              <div class="btn-dropdown-container">
+                <button class="btn" data-css-tailwind="input-range-code">
+                  Copy Code
+                  <iconify-icon
+                    inline
+                    icon="material-symbols:arrow-drop-down-rounded"
+                    style="color: white"
+                    width="20"
+                  ></iconify-icon>
+                </button>
+                <div class="css-tailwind" data-dropdown="input-range-dropdown2">
+                  <!-- dropdown elements go here -->
+
+                  <div class="dropdown-item" data-download="input-range-code">
+                    <iconify-icon
+                      inline
+                      icon="skill-icons:css"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    <span> Get CSS Code </span>
+                  </div>
+                  <div
+                    class="dropdown-item"
+                    data-download="input-range-tailwind"
+                  >
+                    <iconify-icon
+                      inline
+                      icon="devicon:tailwindcss"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    <span> Get Tailwind </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Input Type Range Generator -->
+
+          <!-- Custom Scroll Generator -->
+          <div data-content="scroll">
+            <!-- custom scroll generator -->
+            <h2>Preview</h2>
+            <br />
+            <div id="scroll-preview">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
+            <br />
+            <div class="input">
+              <label for="color" class="color">
+                Track Color
+                <input
+                  type="text"
+                  data-coloris
+                  placeholder="Tap to pick a color"
+                  id="scroll-color1"
+                  class="scroll-inputs"
+                />
+              </label>
+
+              <label for="color" class="color">
+                Thumb Color
+                <input
+                  type="text"
+                  data-coloris
+                  placeholder="Tap to pick a color"
+                  id="scroll-color2"
+                  class="scroll-inputs"
+                />
+              </label>
+
+              <label for="color" class="color">
+                Thumb Color on Hover
+                <input
+                  type="text"
+                  data-coloris
+                  placeholder="Tap to pick a color"
+                  id="scroll-color3"
+                  class="scroll-inputs"
+                />
+              </label>
+
+              <label for="width">
+                Width
+                <input
+                  type="number"
+                  id="scroll-width"
+                  name="desired-radius"
+                  min="0"
+                  max="10"
+                  placeholder="Enter a number e.g. 50"
+                  class="styled-input scroll-inputs"
+                  autofocus
+                  required
+                />
+              </label>
+            </div>
+
+            <!-- Copy Code Button -->
+            <div class="btn-container">
+              <div class="reset" data-reset="scroll">Reset</div>
+              <div class="btn-dropdown-container">
+                <button class="btn" data-css-tailwind="scroll-code">
+                  Copy Code
+                  <iconify-icon
+                    inline
+                    icon="material-symbols:arrow-drop-down-rounded"
+                    style="color: white"
+                    width="20"
+                  ></iconify-icon>
+                </button>
+                <div class="css-tailwind" data-dropdown="scroll-dropdown2">
+                  <!-- dropdown elements go here -->
+
+                  <div class="dropdown-item" data-download="scroll-code">
+                    <iconify-icon
+                      inline
+                      icon="skill-icons:css"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    <span> Get CSS Code </span>
+                  </div>
+                  <!-- <div
+                    class="dropdown-item"
+                    data-download="scroll-tailwind"
+                  >
+                    <iconify-icon
+                      inline
+                      icon="devicon:tailwindcss"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    <span> Get Tailwind </span>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Grid Generator -->
+          <div data-content="grid-generators" class="grid-generators">
+            <div
+              id="grid-generators-preview"
+              class="grid-generators-preview"
+            ></div>
+            <div class="grid-input-containers">
+              <input
+                type="number"
+                name="grid-generators-rows"
+                id="grid-generators-rows"
+                placeholder="Rows"
+                class="grid-generators-inputs row full-page"
+                min="0"
+                max="100"
+              />
+              <input
+                type="number"
+                name="grid-generator-columns"
+                id="grid-generators-columns"
+                class="grid-generators-inputs column full-page"
+                placeholder="Columns"
+                min="0"
+                max="100"
+              />
+              <input
+                type="number"
+                name="grid-generators-row-gaps"
+                id="grid-generators-row-gaps"
+                placeholder="Row gap"
+                class="grid-generators-inputs row-gaps full-page"
+                min="0"
+                max="100"
+              />
+              <input
+                type="number"
+                name="grid-generators-column-gaps"
+                id="grid-generators-column-gaps"
+                placeholder="Column gap"
+                class="grid-generators-inputs column-gaps full-page"
+                min="0"
+                max="100"
+              />
+            </div>
+            <div class="btn-container">
+              <div class="reset" data-reset="grid-generators">Reset</div>
+              <div class="btn-dropdown-container">
+                <button class="btn" data-css-tailwind="grid-generators-code">
+                  Copy Code
+                  <iconify-icon
+                    inline
+                    icon="material-symbols:arrow-drop-down-rounded"
+                    style="color: white"
+                    width="20"
+                  ></iconify-icon>
+                </button>
+                <div
+                  class="css-tailwind"
+                  data-dropdown="grid-generators-dropdown2"
+                >
+                  <!-- dropdown elements go here -->
+
+                  <div
+                    class="dropdown-item"
+                    data-download="grid-generators-code"
+                  >
+                    <iconify-icon
+                      inline
+                      icon="skill-icons:css"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    <span> Get CSS Code </span>
+                  </div>
+                  <div
+                    class="dropdown-item"
+                    data-download="grid-generators-tailwind"
+                  >
+                    <iconify-icon
+                      inline
+                      icon="devicon:tailwindcss"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    <span> Get Tailwind </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Grid generator -->
+        </div>
+        <!-- End of Input for Generators -->
+
+        <!-- Result from Generators -->
+        <div class="side-results">
+          <div class="header">
+            <div class="close-sideBar">
+              <iconify-icon
+                inline
+                icon="lucide:sidebar-close"
+                style="color: white; cursor: pointer"
+                width="28"
+                height="28"
+                id="close-side-bar"
+              ></iconify-icon>
+              <span class="tooltip">Close</span>
+            </div>
+            <h2>Results</h2>
+          </div>
+
+          <!-- Pic Text Result -->
+          <div class="download-output" data-result="pic-text">
+            <div class="output"></div>
+            <div class="download-btn">
+              <div class="image-download">
+                <button class="btn" data-png-svg="pic-text-image">
+                  Download
+                  <iconify-icon
+                    inline
+                    icon="material-symbols:arrow-drop-down-rounded"
+                    style="color: white"
+                    width="20"
+                  ></iconify-icon>
+                </button>
+                <div class="png-svg" data-dropdown="pic-text-dropdown1">
+                  <!-- dropdown elements go here -->
+                  <div class="dropdown-item" data-download="pic-text-PNG">
+                    <iconify-icon
+                      inline
+                      icon="bxs:download"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    Download PNG
+                  </div>
+                  <div class="dropdown-item" data-download="pic-text-svg">
+                    <iconify-icon
+                      inline
+                      icon="bxs:download"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    Download Svg
+                  </div>
+                </div>
+              </div>
+              <div class="btn-dropdown-container">
+                <button class="btn" data-css-tailwind="pic-text-code">
+                  Copy Code
+                  <iconify-icon
+                    inline
+                    icon="material-symbols:arrow-drop-down-rounded"
+                    style="color: white"
+                    width="20"
+                  ></iconify-icon>
+                </button>
+                <div class="css-tailwind" data-dropdown="pic-text-dropdown2">
+                  <!-- dropdown elements -->
+
+                  <div class="dropdown-item" data-download="pic-text-code">
+                    <iconify-icon
+                      inline
+                      icon="skill-icons:css"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    <span> Get CSS Code </span>
+                  </div>
+                  <div class="dropdown-item" data-download="pic-text-tailwind">
+                    <iconify-icon
+                      inline
+                      icon="devicon:tailwindcss"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    <span> Get Tailwind </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Pic Text Result -->
+
+          <!-- Gradient Text Result -->
+          <div class="download-output" data-result="gradient-text">
+            <div class="output"></div>
+
+            <div class="download-btn">
+              <div class="image-download">
+                <button class="btn" data-png-svg="gradient-text-image">
+                  Download
+                  <iconify-icon
+                    inline
+                    icon="material-symbols:arrow-drop-down-rounded"
+                    style="color: white"
+                    width="20"
+                  ></iconify-icon>
+                </button>
+                <div class="png-svg" data-dropdown="gradient-text-dropdown1">
+                  <!-- dropdown elements go here -->
+                  <div class="dropdown-item" data-download="gradient-text-PNG">
+                    <iconify-icon
+                      inline
+                      icon="bxs:download"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    Download PNG
+                  </div>
+                  <div class="dropdown-item" data-download="gradient-text-svg">
+                    <iconify-icon
+                      inline
+                      icon="bxs:download"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    Download Svg
+                  </div>
+                </div>
+              </div>
+              <div class="btn-dropdown-container">
+                <button class="btn" data-css-tailwind="gradient-text-code">
+                  Copy Code
+                  <iconify-icon
+                    inline
+                    icon="material-symbols:arrow-drop-down-rounded"
+                    style="color: white"
+                    width="20"
+                  ></iconify-icon>
+                </button>
+                <div
+                  class="css-tailwind"
+                  data-dropdown="gradient-text-dropdown2"
+                >
+                  <!-- dropdown elements -->
+
+                  <div class="dropdown-item" data-download="gradient-text-code">
+                    <iconify-icon
+                      inline
+                      icon="skill-icons:css"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    <span> Get CSS Code </span>
+                  </div>
+                  <div
+                    class="dropdown-item"
+                    data-download="gradient-text-tailwind"
+                  >
+                    <iconify-icon
+                      inline
+                      icon="devicon:tailwindcss"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    <span> Get Tailwind </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Gradient Text Result -->
+
+          <!-- Gradient Border Result -->
+          <div class="download-output" data-result="gradient-border">
+            <div class="output gradient-border"></div>
+            <div class="btn-dropdown-container">
+              <button class="btn" data-css-tailwind="gradient-border-code">
+                Copy Code
+                <iconify-icon
+                  inline
+                  icon="material-symbols:arrow-drop-down-rounded"
+                  style="color: white"
+                  width="20"
+                ></iconify-icon>
+              </button>
+              <div
+                class="css-tailwind"
+                data-dropdown="gradient-border-dropdown2"
+              >
+                <div class="dropdown-item" data-download="gradient-border-code">
+                  <iconify-icon
+                    inline
+                    icon="skill-icons:css"
+                    style="color: white; margin-right: 5px"
+                    width="20"
+                  ></iconify-icon>
+                  <span> Get CSS Code </span>
+                </div>
+                <div
+                  class="dropdown-item"
+                  data-download="gradient-border-tailwind"
+                >
+                  <iconify-icon
+                    inline
+                    icon="devicon:tailwindcss"
+                    style="color: white; margin-right: 5px"
+                    width="20"
+                  ></iconify-icon>
+                  <span> Get Tailwind </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Gradient Border Result -->
+
+          <!-- Gradient Background Result -->
+          <div class="download-output" data-result="gradient-background">
+            <div class="output"></div>
+            <div class="btn-dropdown-container">
+              <button class="btn" data-css-tailwind="gradient-background-code">
+                Copy Code
+                <iconify-icon
+                  inline
+                  icon="material-symbols:arrow-drop-down-rounded"
+                  style="color: white"
+                  width="20"
+                ></iconify-icon>
+              </button>
+              <div
+                class="css-tailwind"
+                data-dropdown="gradient-background-dropdown2"
+              >
+                <!-- dropdown elements -->
+
+                <div
+                  class="dropdown-item"
+                  data-download="gradient-background-code"
+                >
+                  <iconify-icon
+                    inline
+                    icon="skill-icons:css"
+                    style="color: white; margin-right: 5px"
+                    width="20"
+                  ></iconify-icon>
+                  <span> Get CSS Code </span>
+                </div>
+                <div class="download-btn">
+                  <button
+                    class="btn"
+                    data-download="gradient-background-tailwind"
+                  >
+                    <iconify-icon
+                      inline
+                      icon="devicon:tailwindcss"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    Get Tailwind
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Gradient Background Result -->
+
+          <!-- Animation Result -->
+          <div class="download-output" data-result="animation">
+            <div class="output"></div>
+            <div class="btn-dropdown-container">
+              <button class="btn" data-css-tailwind="animation-code">
+                Copy Code
+                <iconify-icon
+                  inline
+                  icon="material-symbols:arrow-drop-down-rounded"
+                  style="color: white"
+                  width="20"
+                ></iconify-icon>
+              </button>
+              <div class="css-tailwind" data-dropdown="animation-dropdown2">
+                <!-- dropdown elements -->
+
+                <div class="dropdown-item" data-download="animation-code">
+                  <iconify-icon
+                    inline
+                    icon="skill-icons:css"
+                    style="color: white; margin-right: 5px"
+                    width="20"
+                  ></iconify-icon>
+                  <span> Get CSS Code </span>
+                </div>
+                <div class="dropdown-item" data-download="animation-tailwind">
+                  <iconify-icon
+                    inline
+                    icon="devicon:tailwindcss"
+                    style="color: white; margin-right: 5px"
+                    width="20"
+                  ></iconify-icon>
+                  <span> Get Tailwind </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Animation Result -->
+
+          <!-- Border Radius Result -->
+          <div class="download-output" data-result="border-radius">
+            <div class="output"></div>
+            <div class="btn-dropdown-container">
+              <button class="btn" data-css-tailwind="border-radius-code">
+                Copy Code
+                <iconify-icon
+                  inline
+                  icon="material-symbols:arrow-drop-down-rounded"
+                  style="color: white"
+                  width="20"
+                ></iconify-icon>
+              </button>
+              <div class="css-tailwind" data-dropdown="border-radius-dropdown2">
+                <!-- dropdown elements -->
+
+                <div class="dropdown-item" data-download="border-radius-code">
+                  <iconify-icon
+                    inline
+                    icon="skill-icons:css"
+                    style="color: white; margin-right: 5px"
+                    width="20"
+                  ></iconify-icon>
+                  <span> Get CSS Code </span>
+                </div>
+                <div
+                  class="dropdown-item"
+                  data-download="border-radius-tailwind"
+                >
+                  <iconify-icon
+                    inline
+                    icon="devicon:tailwindcss"
+                    style="color: white; margin-right: 5px"
+                    width="20"
+                  ></iconify-icon>
+                  <span> Get Tailwind </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Border Radius Result -->
+
+          <!-- Box-Shadow Result -->
+          <div class="download-output" data-result="box-shadow">
+            <div class="output box-shadow"></div>
+            <div class="btn-dropdown-container">
+              <button class="btn" data-css-tailwind="box-shadow-code">
+                Copy Code
+                <iconify-icon
+                  inline
+                  icon="material-symbols:arrow-drop-down-rounded"
+                  style="color: white"
+                  width="20"
+                ></iconify-icon>
+              </button>
+              <div class="css-tailwind" data-dropdown="box-shadow-dropdown2">
+                <!-- dropdown elements -->
+
+                <div class="dropdown-item" data-download="box-shadow-code">
+                  <iconify-icon
+                    inline
+                    icon="skill-icons:css"
+                    style="color: white; margin-right: 5px"
+                    width="20"
+                  ></iconify-icon>
+                  <span> Get CSS Code </span>
+                </div>
+                <div class="dropdown-item" data-download="box-shadow-tailwind">
+                  <iconify-icon
+                    inline
+                    icon="devicon:tailwindcss"
+                    style="color: white; margin-right: 5px"
+                    width="20"
+                  ></iconify-icon>
+                  <span> Get Tailwind </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Box-Shadow Result -->
+
+          <!-- Transform Result -->
+          <div class="download-output" data-result="transform">
+            <div class="output transform-output"></div>
+            <div class="btn-dropdown-container">
+              <button class="btn" data-css-tailwind="transform-code">
+                Copy Code
+                <iconify-icon
+                  inline
+                  icon="material-symbols:arrow-drop-down-rounded"
+                  style="color: white"
+                  width="20"
+                ></iconify-icon>
+              </button>
+              <div class="css-tailwind" data-dropdown="transform-dropdown2">
+                <!-- dropdown elements -->
+
+                <div class="dropdown-item" data-download="transform-code">
+                  <iconify-icon
+                    inline
+                    icon="skill-icons:css"
+                    style="color: white; margin-right: 5px"
+                    width="20"
+                  ></iconify-icon>
+                  <span> Get CSS Code </span>
+                </div>
+                <div class="dropdown-item" data-download="transform-tailwind">
+                  <iconify-icon
+                    inline
+                    icon="devicon:tailwindcss"
+                    style="color: white; margin-right: 5px"
+                    width="20"
+                  ></iconify-icon>
+                  <span> Get Tailwind </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Transform Result -->
+
+          <!-- Text Shadow Result -->
+          <div class="download-output" data-result="text-shadow">
+            <div class="output"></div>
+
+            <div class="download-btn">
+              <div class="image-download">
+                <button class="btn" data-png-svg="text-shadow-image">
+                  Download
+                  <iconify-icon
+                    inline
+                    icon="material-symbols:arrow-drop-down-rounded"
+                    style="color: white"
+                    width="20"
+                  ></iconify-icon>
+                </button>
+                <div class="png-svg" data-dropdown="text-shadow-dropdown1">
+                  <!-- dropdown elements go here -->
+                  <div class="dropdown-item" data-download="text-shadow-PNG">
+                    <iconify-icon
+                      inline
+                      icon="bxs:download"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    Download PNG
+                  </div>
+                  <div class="dropdown-item" data-download="text-shadow-svg">
+                    <iconify-icon
+                      inline
+                      icon="bxs:download"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    Download Svg
+                  </div>
+                </div>
+              </div>
+              <div class="btn-dropdown-container">
+                <button class="btn" data-css-tailwind="text-shadow-code">
+                  Copy Code
+                  <iconify-icon
+                    inline
+                    icon="material-symbols:arrow-drop-down-rounded"
+                    style="color: white"
+                    width="20"
+                  ></iconify-icon>
+                </button>
+                <div class="css-tailwind" data-dropdown="text-shadow-dropdown2">
+                  <!-- dropdown elements -->
+
+                  <div class="dropdown-item" data-download="text-shadow-code">
+                    <iconify-icon
+                      inline
+                      icon="skill-icons:css"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    <span> Get CSS Code </span>
+                  </div>
+                  <div
+                    class="dropdown-item"
+                    data-download="text-shadow-tailwind"
+                  >
+                    <iconify-icon
+                      inline
+                      icon="devicon:tailwindcss"
+                      style="color: white; margin-right: 5px"
+                      width="20"
+                    ></iconify-icon>
+                    <span> Get Tailwind </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Text Shadow Result -->
+        </div>
+      </section>
+      <!-- End of Generator Tools -->
+    </main>
+  </body>
 </html>
